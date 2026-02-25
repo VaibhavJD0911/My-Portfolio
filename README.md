@@ -6,7 +6,6 @@ A modern, responsive personal portfolio website built with **React** and **Vite*
 
 ## 🚀 Live Demo
 🔗 **Portfolio Website:** https://vaibhav-portfolio-henna.vercel.app/
-*(Replace this with your actual deployed link)*
 
 ---
 
