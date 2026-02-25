@@ -1,0 +1,50 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page {
+  flex: 1;
+  padding-top: 120px;
+}
+
+.page-title {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.page-subtitle {
+  color: var(--muted-text);
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.btn {
+  padding: 12px 32px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: #020617;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--glow-shadow);
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 28px;
+}
