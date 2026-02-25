@@ -1,0 +1,118 @@
+.about-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: auto;
+  padding-top: 100px;
+}
+
+.about-text {
+  flex: 1;
+  animation: fadeLeft 1s ease forwards;
+}
+
+.about-text h2 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.highlight {
+  color: var(--primary-color);
+  text-shadow: 0 0 18px rgba(124, 124, 255, 0.6);
+}
+
+.typing-text {
+  margin: 10px 0 20px;
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+.about-text p {
+  color: var(--muted-text);
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.about-icons {
+  display: flex;
+  gap: 18px;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.about-icons a {
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.about-icons a:hover {
+  transform: translateY(-4px) scale(1.15);
+  filter: drop-shadow(0 0 12px rgba(124, 124, 255, 0.6));
+}
+
+.about-btn {
+  display: inline-block;
+  text-decoration: none;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: #020617;
+  font-weight: 600;
+  padding: 12px 26px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.about-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--glow-shadow);
+}
+
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  animation: fadeRight 1s ease forwards;
+}
+
+.about-image img {
+  width: 350px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 10%;
+  border: 4px solid var(--primary-color);
+  box-shadow:
+    0 0 35px rgba(124, 124, 255, 0.5),
+    0 0 70px rgba(124, 124, 255, 0.25);
+}
+
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 900px) {
+  .about-hero {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .about-icons {
+    justify-content: center;
+  }
+}

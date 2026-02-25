@@ -1,0 +1,128 @@
+.skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 20px;
+  color: var(--text-color);
+}
+
+/* ===== TITLE ===== */
+.skills-title {
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 70px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* ===== CARDS WRAPPER ===== */
+.skills-cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+/* ===== SKILL CARD ===== */
+.skill-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 35px 40px;
+  width: 520px;
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Card heading */
+.skill-card h2 {
+  font-size: 22px;
+  margin-bottom: 25px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+/* ===== SKILL ICONS GRID ===== */
+.skill-icons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* Icon + name */
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 28px;
+  color: var(--muted-text);
+
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.skill-item span {
+  font-size: 13px;
+  color: var(--muted-text);
+}
+
+/* Hover effect */
+.skill-item:hover {
+  transform: translateY(-6px);
+  color: var(--primary-color);
+  filter: drop-shadow(0 0 12px rgba(124, 124, 255, 0.45));
+}
+
+/* ===== PROGRESS SECTION ===== */
+.skills-progress {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Skill bar */
+.skill-bar {
+  margin-bottom: 22px;
+}
+
+.skill-bar span {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: var(--muted-text);
+}
+
+/* Progress bar */
+.progress {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Progress fill */
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border-radius: 10px;
+  box-shadow: 0 0 18px rgba(124, 124, 255, 0.45);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .skills-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skill-card {
+    width: 100%;
+  }
+
+  .skill-icons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

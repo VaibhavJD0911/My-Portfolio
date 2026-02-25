@@ -1,0 +1,81 @@
+.home-container {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  color: var(--text-color);
+
+  /* MATCH ABOUT / GLOBAL BACKGROUND */
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(124, 124, 255, 0.12),
+      transparent 45%
+    ),
+    linear-gradient(180deg, #0b1020, #020617);
+}
+
+/* ===== TITLE ===== */
+.home-title {
+  font-size: 46px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  letter-spacing: 1.5px;
+
+  color: var(--text-color);
+
+  /* indigo glow */
+  text-shadow: 0 0 18px rgba(124, 124, 255, 0.35);
+}
+
+/* ===== BUTTON ===== */
+.home-button {
+  position: relative;
+
+  padding: 14px 44px;
+  font-size: 16px;
+  font-weight: 500;
+
+  border-radius: 999px;
+  text-decoration: none;
+
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+
+  color: #020617;
+
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 30px rgba(124, 124, 255, 0.25);
+
+  transition: all 0.35s ease;
+}
+
+/* Hover effect */
+.home-button:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: var(--glow-shadow);
+}
+
+/* subtle animated glow ring */
+.home-button::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+
+  border: 1px solid rgba(124, 124, 255, 0.4);
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
+}
+
+.home-button:hover::after {
+  opacity: 1;
+}
