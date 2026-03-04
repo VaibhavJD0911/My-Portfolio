@@ -1,4 +1,5 @@
 /* ===== SECTION SPACING ===== */
+
 .projects-section {
   max-width: 1000px;
   margin: auto;
@@ -6,6 +7,7 @@
 }
 
 /* ===== TITLE ===== */
+
 .projects-title {
   text-align: center;
   font-size: 2.6rem;
@@ -14,6 +16,7 @@
 }
 
 /* ===== WRAPPER ===== */
+
 .projects-wrapper {
   display: flex;
   flex-direction: column;
@@ -21,6 +24,7 @@
 }
 
 /* ===== PROJECT BLOCK ===== */
+
 .project-row {
   display: flex;
   flex-direction: column;
@@ -28,17 +32,19 @@
 }
 
 /* ===== PROJECT IMAGE CARD ===== */
+
 .project-card {
   position: relative;
   width: 100%;
   height: 480px;
+
   border-radius: 26px;
   overflow: hidden;
   cursor: pointer;
 
   background: var(--card-bg);
 
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.75);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -49,10 +55,11 @@
   transition: transform 0.6s ease;
 }
 
-/* Hover effect */
+/* Hover */
+
 .project-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 0 55px rgba(124, 124, 255, 0.6);
+  box-shadow: 0 0 55px rgba(124,124,255,0.6);
 }
 
 .project-card:hover img {
@@ -60,19 +67,21 @@
 }
 
 /* ===== OVERLAY ===== */
+
 .project-overlay {
   position: absolute;
   inset: 0;
 
   background: linear-gradient(
     to top,
-    rgba(2, 6, 23, 0.95),
-    rgba(2, 6, 23, 0.25)
+    rgba(2,6,23,0.95),
+    rgba(2,6,23,0.25)
   );
 
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
   padding: 32px;
 
   opacity: 0;
@@ -90,6 +99,7 @@
 }
 
 /* ===== BUTTONS ===== */
+
 .project-buttons {
   display: flex;
   gap: 18px;
@@ -115,15 +125,16 @@
 
 .project-buttons a:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 22px rgba(124, 124, 255, 0.7);
+  box-shadow: 0 0 22px rgba(124,124,255,0.7);
 }
 
 /* ===== DESCRIPTION CARD ===== */
+
 .project-info {
   background: linear-gradient(
     145deg,
-    rgba(15, 23, 42, 0.95),
-    rgba(2, 6, 23, 0.95)
+    rgba(15,23,42,0.95),
+    rgba(2,6,23,0.95)
   );
 
   border-radius: 22px;
@@ -144,28 +155,14 @@
   font-size: 1.05rem;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .projects-section {
-    padding: 120px 20px 80px;
-  }
-
-  .project-card {
-    height: 300px;
-  }
-
-  .project-info {
-    padding: 30px;
-  }
-}
-
 /* ===== SLIDER ARROWS ===== */
+
 .arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
 
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(15,23,42,0.8);
   color: var(--primary-color);
 
   border: none;
@@ -189,4 +186,90 @@
 
 .arrow.right {
   right: 20px;
+}
+
+/* =========================== */
+/* ===== RESPONSIVE ========== */
+/* =========================== */
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+  .projects-section {
+    padding: 120px 30px 90px;
+  }
+
+  .projects-title {
+    font-size: 2.2rem;
+    margin-bottom: 70px;
+  }
+
+  .project-card {
+    height: 380px;
+  }
+
+  .project-info {
+    padding: 34px;
+  }
+
+  .project-info h3 {
+    font-size: 1.3rem;
+  }
+
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .projects-section {
+    padding: 110px 20px 70px;
+  }
+
+  .projects-title {
+    font-size: 2rem;
+    margin-bottom: 60px;
+  }
+
+  .projects-wrapper {
+    gap: 90px;
+  }
+
+  .project-card {
+    height: 260px;
+    border-radius: 18px;
+  }
+
+  .project-overlay {
+    padding: 22px;
+  }
+
+  .project-overlay h3 {
+    font-size: 1.1rem;
+  }
+
+  .project-buttons {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .project-buttons a {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .project-info {
+    padding: 26px;
+  }
+
+  .project-info p {
+    font-size: 0.95rem;
+  }
+
+  .arrow {
+    font-size: 1.5rem;
+    padding: 8px 12px;
+  }
+
 }
