@@ -1,4 +1,5 @@
 /* ===== RESET ===== */
+
 *,
 *::before,
 *::after {
@@ -8,33 +9,80 @@
 }
 
 /* ===== ROOT THEME ===== */
+
 :root {
+
   --bg-color: #0b1020;
+
   --bg-gradient:
-    radial-gradient(circle at top, rgba(124, 124, 255, 0.08), transparent 45%),
-    linear-gradient(180deg, #0b1020, #020617);
+    radial-gradient(circle at top, rgba(124,124,255,0.08), transparent 45%),
+    linear-gradient(180deg,#0b1020,#020617);
 
   --text-color: #e5e7eb;
   --muted-text: #9aa4b2;
 
-  --primary-color: #7c7cff;   /* unique indigo */
+  --primary-color: #7c7cff;
   --secondary-color: #22c55e;
 
-  --card-bg: rgba(15, 23, 42, 0.9);
-  --border-color: rgba(124, 124, 255, 0.25);
+  --card-bg: rgba(15,23,42,0.9);
+  --border-color: rgba(124,124,255,0.25);
 
-  --glow-shadow: 0 0 35px rgba(124, 124, 255, 0.25);
+  --glow-shadow: 0 0 35px rgba(124,124,255,0.25);
+}
+
+/* ===== HTML ===== */
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* ===== BODY ===== */
+
 body {
   font-family: 'Inter', system-ui, Arial, sans-serif;
+
   background: var(--bg-gradient);
   color: var(--text-color);
+
   min-height: 100vh;
+
+  line-height: 1.6;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== LINKS ===== */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ===== IMAGES ===== */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===== BUTTON RESET ===== */
+
+button {
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+/* ===== TEXT SELECTION ===== */
+
+::selection {
+  background: var(--primary-color);
+  color: #020617;
 }
 
 /* ===== SCROLLBAR ===== */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -46,4 +94,14 @@ body {
 
 ::-webkit-scrollbar-track {
   background: #020617;
+}
+
+/* ===== RESPONSIVE BASE ===== */
+
+@media (max-width: 600px) {
+
+  body {
+    font-size: 14px;
+  }
+
 }
