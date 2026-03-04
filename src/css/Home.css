@@ -7,19 +7,22 @@
   align-items: center;
   text-align: center;
 
+  padding: 0 20px;
+
   color: var(--text-color);
 
   /* MATCH ABOUT / GLOBAL BACKGROUND */
   background:
     radial-gradient(
       circle at top,
-      rgba(124, 124, 255, 0.12),
+      rgba(124,124,255,0.12),
       transparent 45%
     ),
-    linear-gradient(180deg, #0b1020, #020617);
+    linear-gradient(180deg,#0b1020,#020617);
 }
 
 /* ===== TITLE ===== */
+
 .home-title {
   font-size: 46px;
   font-weight: 600;
@@ -28,11 +31,11 @@
 
   color: var(--text-color);
 
-  /* indigo glow */
-  text-shadow: 0 0 18px rgba(124, 124, 255, 0.35);
+  text-shadow: 0 0 18px rgba(124,124,255,0.35);
 }
 
 /* ===== BUTTON ===== */
+
 .home-button {
   position: relative;
 
@@ -52,25 +55,28 @@
   color: #020617;
 
   backdrop-filter: blur(6px);
-  box-shadow: 0 10px 30px rgba(124, 124, 255, 0.25);
+
+  box-shadow: 0 10px 30px rgba(124,124,255,0.25);
 
   transition: all 0.35s ease;
 }
 
-/* Hover effect */
+/* Hover */
+
 .home-button:hover {
   transform: translateY(-4px) scale(1.04);
   box-shadow: var(--glow-shadow);
 }
 
-/* subtle animated glow ring */
+/* Glow ring */
+
 .home-button::after {
   content: "";
   position: absolute;
   inset: -4px;
   border-radius: inherit;
 
-  border: 1px solid rgba(124, 124, 255, 0.4);
+  border: 1px solid rgba(124,124,255,0.4);
   opacity: 0;
 
   transition: opacity 0.3s ease;
@@ -78,4 +84,40 @@
 
 .home-button:hover::after {
   opacity: 1;
+}
+
+/* =========================== */
+/* ===== RESPONSIVE ========== */
+/* =========================== */
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+  .home-title {
+    font-size: 36px;
+    margin-bottom: 32px;
+  }
+
+  .home-button {
+    padding: 12px 36px;
+    font-size: 15px;
+  }
+
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .home-title {
+    font-size: 28px;
+    line-height: 1.3;
+  }
+
+  .home-button {
+    padding: 11px 30px;
+    font-size: 14px;
+  }
+
 }
