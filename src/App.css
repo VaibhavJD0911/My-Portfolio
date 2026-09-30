@@ -1,0 +1,208 @@
+/* ============================================================
+   APP.CSS — Shared Layout & Component Tokens
+   ============================================================ */
+
+/* ===== APP SHELL ===== */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== PAGE WRAPPER ===== */
+
+.page {
+  flex: 1;
+  padding-top: 80px;   /* navbar height */
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== PAGE HEADER ===== */
+
+.page-header {
+  text-align: center;
+  margin-bottom: 80px;
+  animation: slideUp 0.8s ease forwards;
+}
+
+/* ===== PAGE TITLE ===== */
+
+.page-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 16px;
+
+  background: linear-gradient(135deg, var(--text-main) 0%, var(--accent-cyan) 60%, var(--primary-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: var(--gradient-blue);
+  border-radius: 2px;
+  box-shadow: var(--glow-blue);
+}
+
+.page-subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 60px;
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  line-height: 1.8;
+  animation: slideUp 0.8s ease 0.2s both;
+}
+
+/* ===== PRIMARY BUTTON ===== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 13px 40px;
+  border-radius: 6px;
+
+  background: transparent;
+  color: var(--accent-cyan);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+
+  border: 1px solid rgba(255, 0, 64, 0.45);
+  cursor: pointer;
+
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.btn:hover {
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 30px rgba(255, 4, 0, 0.38), 0 0 0 1px rgba(255, 0, 64, 0.25);
+  transform: translateY(-2px);
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+/* ===== GLASS CARD ===== */
+
+.card {
+  background: var(--bg-glass-heavy);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid var(--border-glass);
+  border-radius: 12px;
+  padding: 36px;
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top highlight line */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 54, 0.25), transparent);
+}
+
+.card:hover {
+  border-color: rgba(255, 0, 54, 0.28);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 0, 54, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transform: translateY(-5px);
+}
+
+/* ===== CONTENT GRID ===== */
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ===== SECTION DIVIDER ===== */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 24, 0.25), transparent);
+  margin: 80px 0;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+  .page { padding-top: 72px; }
+
+  .page-title { font-size: 2.6rem; }
+  .page-subtitle { font-size: 1rem; margin-bottom: 48px; }
+
+  .btn { padding: 12px 32px; font-size: 12px; }
+  .card { padding: 28px; }
+  .content-grid { gap: 20px; }
+}
+
+@media (max-width: 600px) {
+  .page { padding-top: 68px; }
+
+  .page-title  { font-size: 2rem; letter-spacing: 2px; }
+  .page-subtitle { font-size: 0.92rem; margin-bottom: 36px; }
+
+  .btn { padding: 11px 26px; font-size: 11px; letter-spacing: 2px; }
+  .card { padding: 22px; border-radius: 10px; }
+  .content-grid { grid-template-columns: 1fr; gap: 16px; }
+  .section-divider { margin: 56px 0; }
+}

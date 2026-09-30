@@ -1,0 +1,998 @@
+/* ============================================================
+   SHOWCASE.CSS — Projects Showcase
+   ============================================================ */
+
+
+/* ============================================================
+   SECTION
+   ============================================================ */
+
+.projects-section {
+  max-width: 1240px;
+  margin: 0 auto;
+
+  padding: 80px 48px 110px;
+
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.projects-header {
+  text-align: center;
+
+  margin-bottom: 90px;
+
+  animation: projectSlideUp 0.8s ease both;
+}
+
+
+.projects-label {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 14px;
+
+  font-family: "Orbitron", sans-serif;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: 5px;
+
+  text-transform: uppercase;
+
+  color: var(--primary-blue);
+
+  margin-bottom: 20px;
+}
+
+
+.projects-label::before,
+.projects-label::after {
+  content: "";
+
+  width: 32px;
+  height: 1px;
+
+  background: var(--primary-blue);
+
+  opacity: 0.5;
+}
+
+
+.projects-title {
+  font-family: "Barlow Condensed", sans-serif;
+
+  font-size: clamp(2.5rem, 5vw, 3.7rem);
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  line-height: 1;
+
+  text-transform: uppercase;
+
+  margin: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--text-main) 20%,
+      var(--accent-cyan) 80%
+    );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  background-clip: text;
+}
+
+
+.projects-title::after {
+  content: "";
+
+  display: block;
+
+  width: 48px;
+  height: 2px;
+
+  margin: 18px auto 0;
+
+  background: var(--gradient-blue);
+
+  border-radius: 2px;
+
+  box-shadow:
+    0 0 10px rgba(255, 0, 24, 0.4);
+}
+
+
+.projects-subtitle {
+  max-width: 600px;
+
+  margin: 24px auto 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.95rem;
+
+  line-height: 1.8;
+}
+
+
+/* ============================================================
+   PROJECT WRAPPER
+   ============================================================ */
+
+.projects-wrapper {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 120px;
+}
+
+
+/* ============================================================
+   PROJECT ROW
+   ============================================================ */
+
+.project-row {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.1fr)
+    minmax(0, 0.9fr);
+
+  gap: 70px;
+
+  align-items: center;
+
+  animation:
+    projectSlideUp 0.8s ease both;
+}
+
+
+.project-row:nth-child(even) {
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(0, 1.1fr);
+}
+
+
+.project-row:nth-child(even)
+.project-visual {
+  order: 2;
+}
+
+
+.project-row:nth-child(even)
+.project-info {
+  order: 1;
+}
+
+
+/* ============================================================
+   PROJECT VISUAL
+   ============================================================ */
+
+.project-visual {
+  position: relative;
+
+  min-width: 0;
+}
+
+
+/* Large background project number */
+
+.project-number {
+  position: absolute;
+
+  top: -48px;
+  left: -10px;
+
+  font-family: "Orbitron", sans-serif;
+
+  font-size: 5rem;
+
+  font-weight: 900;
+
+  line-height: 1;
+
+  letter-spacing: -5px;
+
+  color: rgba(255, 6, 0, 0.055);
+
+  pointer-events: none;
+
+  user-select: none;
+
+  z-index: 0;
+}
+
+
+/* ============================================================
+   PROJECT CARD
+   ============================================================ */
+
+.project-card {
+  position: relative;
+
+  width: 100%;
+
+  height: 370px;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  background: var(--bg-tertiary);
+
+  border: 1px solid var(--border-glass);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  isolation: isolate;
+
+  transition:
+    transform 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+
+.project-card:hover {
+  transform: translateY(-8px);
+
+  border-color:
+    rgba(255, 0, 44, 0.38);
+
+  box-shadow:
+    0 40px 90px rgba(0, 0, 0, 0.62),
+    0 0 0 1px rgba(255, 0, 44, 0.1),
+    0 0 45px rgba(200, 3, 0, 0.12);
+}
+
+
+/* ============================================================
+   PROJECT IMAGE
+   ============================================================ */
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  filter:
+    saturate(0.82)
+    brightness(0.78);
+
+  transition:
+    transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.5s ease;
+}
+
+
+.project-card:hover img {
+  transform: scale(1.045);
+
+  filter:
+    saturate(1)
+    brightness(0.94);
+}
+
+
+/* ============================================================
+   IMAGE OVERLAY
+   ============================================================ */
+
+.project-image-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 8, 12, 0.08) 0%,
+      transparent 35%,
+      rgba(7, 4, 5, 0.88) 100%
+    );
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+/* ============================================================
+   SCAN LIGHT
+   ============================================================ */
+
+.project-card::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  top: -100%;
+
+  width: 100%;
+  height: 55%;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(255, 6, 0, 0.13),
+      transparent
+    );
+
+  z-index: 3;
+
+  pointer-events: none;
+
+  transition: top 0.75s ease;
+}
+
+
+.project-card:hover::before {
+  top: 110%;
+}
+
+
+/* ============================================================
+   CORNER MARKS
+   ============================================================ */
+
+.project-card::after {
+  content: "";
+
+  position: absolute;
+
+  right: 14px;
+  bottom: 14px;
+
+  width: 28px;
+  height: 28px;
+
+  border-right:
+    1.5px solid rgba(255, 0, 54, 0.5);
+
+  border-bottom:
+    1.5px solid rgba(255, 0, 54, 0.5);
+
+  border-radius: 0 0 4px 0;
+
+  z-index: 5;
+
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   IMAGE COUNTER
+   ============================================================ */
+
+.project-counter {
+  position: absolute;
+
+  top: 18px;
+  right: 20px;
+
+  z-index: 5;
+
+  padding: 7px 11px;
+
+  border-radius: 4px;
+
+  background:
+    rgba(8, 8, 12, 0.72);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.1);
+
+  backdrop-filter: blur(10px);
+
+  font-family: "Orbitron", sans-serif;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+
+  color: #fff;
+}
+
+
+.project-counter span {
+  margin: 0 5px;
+
+  color: var(--primary-blue);
+
+  opacity: 0.7;
+}
+
+
+/* ============================================================
+   IMAGE FOOTER
+   ============================================================ */
+
+.project-image-footer {
+  position: absolute;
+
+  left: 24px;
+  right: 24px;
+  bottom: 20px;
+
+  z-index: 4;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+
+.project-image-footer span {
+  font-family: "Orbitron", sans-serif;
+
+  font-size: 8px;
+
+  font-weight: 500;
+
+  letter-spacing: 2px;
+
+  color: rgba(255, 255, 255, 0.65);
+}
+
+
+.project-image-footer span:last-child {
+  color: var(--accent-cyan);
+}
+
+
+/* ============================================================
+   PROJECT ARROWS
+   ============================================================ */
+
+.project-arrows {
+  position: absolute;
+
+  left: 20px;
+  top: 20px;
+
+  z-index: 6;
+
+  display: flex;
+
+  gap: 7px;
+}
+
+
+.project-arrow {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  color: var(--text-secondary);
+
+  background:
+    rgba(8, 8, 12, 0.72);
+
+  border:
+    1px solid rgba(255, 0, 24, 0.22);
+
+  backdrop-filter: blur(8px);
+
+  transition:
+    all 0.25s ease;
+}
+
+
+.project-arrow:hover {
+  color: #fff;
+
+  background:
+    var(--primary-blue);
+
+  border-color:
+    var(--primary-blue);
+
+  box-shadow:
+    0 6px 18px rgba(255, 4, 0, 0.35);
+
+  transform: translateY(-2px);
+}
+
+
+.project-arrow i {
+  font-size: 10px;
+}
+
+
+/* ============================================================
+   PROJECT INFO
+   ============================================================ */
+
+.project-info {
+  position: relative;
+
+  min-width: 0;
+
+  padding: 12px 0;
+}
+
+
+/* Small project number */
+
+.project-index {
+  margin-bottom: 12px;
+
+  font-family: "Orbitron", sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  color: var(--primary-blue);
+
+  opacity: 0.9;
+}
+
+
+/* ============================================================
+   CATEGORY
+   ============================================================ */
+
+.project-category {
+  display: inline-block;
+
+  margin-bottom: 12px;
+
+  font-family: "Orbitron", sans-serif;
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  letter-spacing: 2.5px;
+
+  text-transform: uppercase;
+
+  color: var(--accent-cyan);
+
+  opacity: 0.9;
+}
+
+
+/* ============================================================
+   PROJECT TITLE
+   ============================================================ */
+
+.project-info h3 {
+  font-family: "Barlow Condensed", sans-serif;
+
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+
+  line-height: 1.05;
+
+  color: var(--text-main);
+
+  margin: 0;
+}
+
+
+/* ============================================================
+   TITLE LINE
+   ============================================================ */
+
+.project-line {
+  width: 45px;
+  height: 2px;
+
+  margin: 16px 0 22px;
+
+  border-radius: 2px;
+
+  background: var(--gradient-blue);
+
+  box-shadow:
+    0 0 10px rgba(255, 0, 24, 0.35);
+}
+
+
+/* ============================================================
+   DESCRIPTION
+   ============================================================ */
+
+.project-description {
+  max-width: 540px;
+
+  margin: 0 0 28px;
+
+  color: var(--text-secondary);
+
+  font-size: 0.95rem;
+
+  line-height: 1.85;
+}
+
+
+/* ============================================================
+   TECHNOLOGIES
+   ============================================================ */
+
+.project-technologies {
+  margin-bottom: 30px;
+}
+
+
+.technology-heading {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-family: "Orbitron", sans-serif;
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  color: var(--primary-blue);
+}
+
+
+.technology-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+
+.technology {
+  padding: 6px 11px;
+
+  border-radius: 4px;
+
+  font-family: "Barlow Condensed", sans-serif;
+
+  font-size: 12px;
+
+  letter-spacing: 0.5px;
+
+  color: var(--text-secondary);
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  border:
+    1px solid var(--border-glass);
+
+  transition:
+    all 0.25s ease;
+}
+
+
+.technology:hover {
+  color: var(--accent-cyan);
+
+  background:
+    rgba(200, 3, 0, 0.08);
+
+  border-color:
+    rgba(255, 0, 24, 0.35);
+
+  transform: translateY(-2px);
+}
+
+
+/* ============================================================
+   PROJECT BUTTONS
+   ============================================================ */
+
+.project-actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+
+.project-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  min-width: 130px;
+
+  padding: 11px 20px;
+
+  border-radius: 5px;
+
+  text-decoration: none;
+
+  font-family: "Barlow Condensed", sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  color: var(--text-secondary);
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  border:
+    1px solid var(--border-glass);
+
+  transition:
+    all 0.28s ease;
+}
+
+
+.project-button i {
+  font-size: 11px;
+}
+
+
+.project-button:hover {
+  color: #fff;
+
+  background:
+    var(--primary-blue);
+
+  border-color:
+    var(--primary-blue);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 22px rgba(255, 4, 0, 0.32);
+}
+
+
+.project-button-primary {
+  color: var(--accent-cyan);
+
+  border-color:
+    rgba(255, 0, 24, 0.25);
+
+  background:
+    rgba(200, 3, 0, 0.07);
+}
+
+
+/* ============================================================
+   RESPONSIVE — TABLET
+   ============================================================ */
+
+@media (max-width: 1050px) {
+
+  .projects-section {
+    padding: 70px 36px 90px;
+  }
+
+
+  .project-row,
+  .project-row:nth-child(even) {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+
+  .project-row:nth-child(even)
+  .project-visual {
+    order: 1;
+  }
+
+
+  .project-row:nth-child(even)
+  .project-info {
+    order: 2;
+  }
+
+
+  .project-card {
+    height: 340px;
+  }
+
+
+  .project-info {
+    max-width: 760px;
+
+    margin: 0 auto;
+
+    width: 100%;
+  }
+
+
+  .project-description {
+    max-width: none;
+  }
+
+}
+
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+  .projects-section {
+    padding:
+      60px
+      20px
+      80px;
+  }
+
+
+  .projects-header {
+    margin-bottom: 65px;
+  }
+
+
+  .projects-title {
+    font-size: 2.1rem;
+
+    letter-spacing: 1.5px;
+  }
+
+
+  .projects-subtitle {
+    font-size: 0.88rem;
+
+    line-height: 1.7;
+  }
+
+
+  .projects-wrapper {
+    gap: 80px;
+  }
+
+
+  .project-card {
+    height: 235px;
+
+    border-radius: 10px;
+  }
+
+
+  .project-number {
+    top: -30px;
+    left: 0;
+
+    font-size: 3.8rem;
+  }
+
+
+  .project-image-footer {
+    left: 16px;
+    right: 16px;
+    bottom: 14px;
+  }
+
+
+  .project-image-footer span {
+    font-size: 7px;
+
+    letter-spacing: 1.3px;
+  }
+
+
+  .project-counter {
+    top: 14px;
+    right: 14px;
+
+    font-size: 8px;
+  }
+
+
+  .project-arrows {
+    left: 14px;
+    top: 14px;
+  }
+
+
+  .project-arrow {
+    width: 30px;
+    height: 30px;
+  }
+
+
+  .project-info h3 {
+    font-size: 1.75rem;
+  }
+
+
+  .project-description {
+    font-size: 0.9rem;
+
+    line-height: 1.75;
+  }
+
+
+  .project-actions {
+    width: 100%;
+  }
+
+
+  .project-button {
+    flex: 1;
+
+    min-width: 0;
+
+    padding:
+      10px
+      12px;
+
+    font-size: 10px;
+  }
+
+}
+
+
+/* ============================================================
+   ANIMATION
+   ============================================================ */
+
+@keyframes projectSlideUp {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}

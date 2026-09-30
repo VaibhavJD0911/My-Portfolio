@@ -1,0 +1,228 @@
+/* ============================================================
+   HOME.CSS — Full-Screen Hero
+   ============================================================ */
+
+/* ===== CONTAINER ===== */
+
+.home-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 80px 24px 40px;
+  z-index: 1;
+}
+
+/* Central blue spotlight */
+.home-container::before {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70vw;
+  height: 70vw;
+  max-width: 800px;
+  max-height: 800px;
+  background: radial-gradient(ellipse at center,
+    rgba(200, 3, 0, 0.12) 0%,
+    rgba(160, 7, 0, 0.06) 40%,
+    transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Horizontal scan lines — subtle */
+.home-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ===== CONTENT WRAPPER ===== */
+
+.home-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  animation: slideUp 1s ease both;
+}
+
+/* ===== OVERLINE LABEL ===== */
+
+.home-overline {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--primary-blue);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  opacity: 0;
+  animation: fadeIn 0.8s ease 0.3s forwards;
+}
+
+.home-overline::before,
+.home-overline::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--primary-blue);
+  opacity: 0.5;
+}
+
+/* ===== HERO TITLE ===== */
+
+.home-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2.8rem, 8vw, 6.5rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  margin-bottom: 48px;
+  color: var(--text-main);
+
+  /* Keep min-height to prevent layout jump */
+  min-height: 1.1em;
+
+  text-shadow: 0 0 80px rgba(255, 6, 0, 0.12);
+  opacity: 0;
+  animation: slideUp 0.9s ease 0.5s forwards;
+}
+
+/* Typewriter cursor color override */
+.home-title span {
+  color: var(--accent-cyan) !important;
+  text-shadow: 0 0 20px rgba(255, 0, 64, 0.5);
+}
+
+/* ===== CTA BUTTON ===== */
+
+.home-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+
+  padding: 15px 48px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3.5px;
+  color: var(--accent-cyan);
+
+  background: rgba(255, 6, 0, 0.06);
+  border: 1px solid rgba(255, 0, 34, 0.40);
+  border-radius: 4px;
+  overflow: hidden;
+
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  opacity: 0;
+  animation: fadeIn 0.8s ease 0.9s forwards;
+}
+
+/* Background fill on hover */
+.home-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+  transform: translateX(-105%);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 0;
+}
+
+/* Arrow icon */
+.home-button::after {
+  content: '→';
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.home-button span {
+  position: relative;
+  z-index: 1;
+}
+
+.home-button:hover {
+  color: #fff;
+  border-color: transparent;
+  box-shadow:
+    0 12px 40px rgba(255, 4, 0, 0.4),
+    0 0 0 1px rgba(255, 0, 64, 0.2);
+  transform: translateY(-3px);
+}
+
+.home-button:hover::before {
+  transform: translateX(0);
+}
+
+.home-button:hover::after {
+  transform: translateX(4px);
+}
+
+/* ===== SCROLL INDICATOR ===== */
+
+.home-scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeIn 0.8s ease 1.4s forwards;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.home-scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--primary-blue), transparent);
+  animation: scrollPulse 1.8s ease-in-out infinite;
+}
+
+.home-scroll-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 8px;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1.0; }
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 600px) {
+  .home-title       { font-size: clamp(2.2rem, 9vw, 3.6rem); margin-bottom: 36px; }
+  .home-button      { padding: 13px 36px; font-size: 12px; letter-spacing: 2.5px; }
+  .home-scroll      { bottom: 24px; }
+}

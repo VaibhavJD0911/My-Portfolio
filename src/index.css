@@ -1,0 +1,227 @@
+/* ============================================================
+   GLOBAL DESIGN SYSTEM — VAIBHAV JD PORTFOLIO
+   Theme: Deep Space Command Center
+   Fonts: Orbitron (display) + Barlow (body)
+   Palette: Black & Blue with Glassmorphism
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap');
+
+/* ===== RESET ===== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== CSS VARIABLES ===== */
+
+:root {
+  /* --- Backgrounds --- */
+  --bg-dark:       #080202;
+  --bg-primary:    #140605;
+  --bg-secondary:  #1f0907;
+  --bg-tertiary:   #290b0c;
+
+  /* --- Glass Layers --- */
+  --bg-glass:        rgba(100, 2, 0, 0.06);
+  --bg-glass-medium: rgba(130, 4, 0, 0.12);
+  --bg-glass-heavy:  rgba(37, 9, 3, 0.72);
+  --border-glass:       rgba(255, 0, 24, 0.14);
+  --border-glass-bright: rgba(255, 0, 54, 0.30);
+
+  /* --- Blue Palette --- */
+  --primary-blue:       #ff0400;
+  --primary-blue-light: #ff433d;
+  --primary-blue-dark:  #cc1100;
+  --accent-cyan:        #ff0040;
+  --neon-blue:          #ff0062;
+  --electric:           #ff0016;
+
+  /* --- Neon aliases (backward compat) --- */
+  --neon-cyan:    #ff0040;
+  --neon-purple:  #ff1500;
+  --neon-magenta: #ff0400;
+
+  /* --- Text --- */
+  --text-main:      #ffdfdc;
+  --text-color:     #ffdfdc;
+  --text-secondary: #ac6a66;
+  --text-muted:     #613a33;
+
+  /* --- Gradients --- */
+  --bg-gradient:
+    radial-gradient(ellipse at 18% 45%, rgba(200, 3, 0, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at 82% 72%, rgba(255, 6, 0, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 0%,  rgba(160, 7, 0, 0.08) 0%, transparent 40%),
+    linear-gradient(170deg, #080202 0%, #140605 60%, #080304 100%);
+
+  --gradient-blue:  linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+  --gradient-neon:  linear-gradient(135deg, var(--accent-cyan), var(--primary-blue));
+  --gradient-glow:  linear-gradient(135deg, #ff0400 0%, #ff0040 100%);
+
+  /* --- Glows --- */
+  --glow-blue: 0 0 18px rgba(255, 4, 0, 0.38), 0 0 50px rgba(255, 4, 0, 0.14);
+  --glow-cyan: 0 0 18px rgba(255, 0, 64, 0.38), 0 0 50px rgba(255, 0, 64, 0.14);
+  --glow-neon: 0 0 30px rgba(255, 0, 24, 0.42), 0 0 70px rgba(200, 3, 0, 0.18);
+}
+
+/* ===== HTML ===== */
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+/* ===== BODY ===== */
+
+body {
+  font-family: 'Barlow', 'Segoe UI', sans-serif;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-color);
+  min-height: 100vh;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Blueprint grid overlay — subtle tech texture */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 6, 0, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 6, 0, 0.022) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ambient atmospheric glow */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(200, 3, 0, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 80%, rgba(255, 6, 0, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+  animation: ambientShift 20s ease-in-out infinite alternate;
+}
+
+/* ===== KEYFRAMES ===== */
+
+@keyframes ambientShift {
+  0%   { opacity: 0.7; }
+  100% { opacity: 1.0; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0);     }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 12px rgba(255, 4, 0, 0.30); }
+  50%       { box-shadow: 0 0 30px rgba(255, 4, 0, 0.60); }
+}
+
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100%);  }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(255, 0, 24, 0.14); }
+  50%       { border-color: rgba(255, 0, 64, 0.32); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px);   }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0%   { transform: translateX(-120%); }
+  100% { transform: translateX(120%);  }
+}
+
+@keyframes bgShift {
+  0%, 100% { opacity: 1;   }
+  50%       { opacity: 0.8; }
+}
+
+/* ===== LINKS ===== */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ===== IMAGES ===== */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===== BUTTON RESET ===== */
+
+button {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* ===== TEXT SELECTION ===== */
+
+::selection {
+  background: var(--primary-blue);
+  color: #fff;
+}
+
+/* ===== SCROLLBAR ===== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary-blue), var(--accent-cyan));
+  border-radius: 3px;
+  box-shadow: 0 0 8px rgba(255, 6, 0, 0.4);
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(20, 6, 5, 0.8);
+}
+
+/* ===== RESPONSIVE BASE ===== */
+
+@media (max-width: 600px) {
+  html { font-size: 15px; }
+}
