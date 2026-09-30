@@ -166,7 +166,7 @@ function About() {
           </a>
 
           <a
-            href="https://wa.me/919538676876"
+            href="https://wa.me/918277779055"
             target="_blank"
             rel="noreferrer"
             title="WhatsApp"
