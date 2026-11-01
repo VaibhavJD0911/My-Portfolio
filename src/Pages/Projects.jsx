@@ -214,7 +214,7 @@ function ProjectRow({
                 onClick={prevImage}
                 aria-label="Previous project image"
               >
-                <i className="fas fa-chevron-left" />
+                ‹
               </button>
 
               <button
@@ -222,7 +222,7 @@ function ProjectRow({
                 onClick={nextImage}
                 aria-label="Next project image"
               >
-                <i className="fas fa-chevron-right" />
+                ›
               </button>
 
             </div>

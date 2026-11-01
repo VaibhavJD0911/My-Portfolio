@@ -38,8 +38,29 @@ function Navbar() {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    if (!isOpen) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") setIsOpen(false);
+    };
+    const handleResize = () => {
+      if (window.innerWidth > 820) setIsOpen(false);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isOpen]);
+
   return (
-    <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
+    <>
+    <nav
+      className={`navbar ${scrolled ? "navbar-scrolled" : ""} ${isOpen ? "navbar-menu-open" : ""}`}
+    >
       <div className="nav-container">
         {/* ===== LOGO ===== */}
 
@@ -92,10 +113,12 @@ function Navbar() {
         ===================================================== */}
 
         <button
+          type="button"
           className={`hamburger ${isOpen ? "hamburger-open" : ""}`}
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle navigation menu"
+          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
         >
           <span />
           <span />
@@ -103,62 +126,65 @@ function Navbar() {
         </button>
       </div>
 
-      {/* =====================================================
-          MOBILE MENU
-      ===================================================== */}
-
-      <div className={`mobile-menu ${isOpen ? "mobile-menu-open" : ""}`}>
-        <ul className="mobile-links">
-          <li>
-            <NavLink to="/" end onClick={closeMenu}>
-              Home
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink to="/about" onClick={closeMenu}>
-              About
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink to="/experience" onClick={closeMenu}>
-              Experience
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink to="/projects" onClick={closeMenu}>
-              Projects
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink to="/skills" onClick={closeMenu}>
-              Skills
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink to="/certifications" onClick={closeMenu}>
-              Certifications
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink to="/freelance" onClick={closeMenu}>
-              Freelance
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink to="/services" onClick={closeMenu}>
-              Services
-            </NavLink>
-          </li>
-        </ul>
-      </div>
     </nav>
+    <nav
+      id="mobile-navigation"
+      className={`mobile-menu ${isOpen ? "mobile-menu-open" : ""}`}
+      aria-hidden={!isOpen}
+      aria-label="Mobile navigation"
+      inert={!isOpen}
+    >
+      <ul className="mobile-links">
+        <li>
+          <NavLink to="/" end onClick={closeMenu}>
+            Home
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/about" onClick={closeMenu}>
+            About
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/experience" onClick={closeMenu}>
+            Experience
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/projects" onClick={closeMenu}>
+            Projects
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/skills" onClick={closeMenu}>
+            Skills
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/certifications" onClick={closeMenu}>
+            Certifications
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/freelance" onClick={closeMenu}>
+            Freelance
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/services" onClick={closeMenu}>
+            Services
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
+    </>
   );
 }
 

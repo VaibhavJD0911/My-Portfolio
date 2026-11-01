@@ -485,8 +485,8 @@
 
 
 .project-arrow {
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
 
   display: flex;
 
@@ -742,6 +742,7 @@
   gap: 9px;
 
   min-width: 130px;
+  min-height: 44px;
 
   padding: 11px 20px;
 
@@ -913,6 +914,9 @@
     left: 16px;
     right: 16px;
     bottom: 14px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 6px 14px;
   }
 
 
@@ -936,11 +940,6 @@
     top: 14px;
   }
 
-
-  .project-arrow {
-    width: 30px;
-    height: 30px;
-  }
 
 
   .project-info h3 {

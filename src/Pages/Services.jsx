@@ -43,7 +43,7 @@ function Services() {
               {String(index + 1).padStart(2, "0")}
             </div>
             <div className="service-icon">{service.icon}</div>
-            <h3>{service.title}</h3>A
+            <h3>{service.title}</h3>
             <p>{service.desc}</p>
           </div>
         ))}

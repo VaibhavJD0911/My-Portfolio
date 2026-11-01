@@ -82,10 +82,13 @@ function ProjectCard({ project }) {
 
         <div className="carousel-dots">
           {project.images.map((_, i) => (
-            <span
+            <button
+              type="button"
               key={i}
               className={`dot ${i === index ? "active" : ""}`}
               onClick={() => setIndex(i)}
+              aria-label={`Show image ${i + 1} of ${total} for ${project.title}`}
+              aria-pressed={i === index}
             />
           ))}
         </div>
