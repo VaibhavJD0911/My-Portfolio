@@ -1,4 +1,3 @@
-import "../css/Service.css";
 
 const services = [
   {

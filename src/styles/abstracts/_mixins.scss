@@ -1,0 +1,24 @@
+@use 'sass:map';
+@use 'variables' as tokens;
+
+@mixin respond-below($breakpoint) {
+  @if not map.has-key(tokens.$breakpoints, $breakpoint) {
+    @error 'Unknown breakpoint: #{$breakpoint}';
+  }
+
+  @media (max-width: map.get(tokens.$breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin transition($properties: all, $duration: tokens.$motion-base) {
+  transition-property: $properties;
+  transition-duration: $duration;
+  transition-timing-function: tokens.$ease-fluid;
+}
+
+@mixin content-width($max-width: 1240px) {
+  width: min(100%, #{$max-width});
+  margin-inline: auto;
+  padding-inline: map.get(tokens.$space, gutter);
+}

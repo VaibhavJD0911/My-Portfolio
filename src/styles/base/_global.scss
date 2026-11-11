@@ -1,0 +1,160 @@
+/* ============================================================
+   GLOBAL DESIGN SYSTEM — VAIBHAV JD PORTFOLIO
+   Theme: Warm beige and midnight blue
+   ============================================================ */
+@use '../abstracts/variables' as tokens;
+
+/* ===== CSS VARIABLES ===== */
+
+:root {
+  @each $name, $value in tokens.$palette {
+    --color-#{$name}: #{$value};
+  }
+
+  --bg-dark: var(--color-background);
+  --bg-primary: var(--color-background);
+  --bg-secondary: var(--color-surface);
+  --bg-tertiary: var(--color-surface);
+  --bg-glass: var(--color-surface);
+  --bg-glass-medium: var(--color-beige-soft);
+  --bg-glass-heavy: var(--color-surface);
+  --border-glass: var(--color-border);
+  --border-glass-bright: var(--color-border-strong);
+
+  --primary-blue: var(--color-primary);
+  --primary-blue-light: var(--color-accent);
+  --primary-blue-dark: var(--color-navy-deep);
+  --accent-cyan: var(--color-accent);
+  --neon-blue: var(--color-accent);
+  --electric: var(--color-primary);
+  --neon-cyan: var(--color-accent);
+  --neon-purple: var(--color-accent);
+  --neon-magenta: var(--color-primary);
+
+  --text-main: var(--color-primary);
+  --text-color: var(--color-text);
+  --text-secondary: var(--color-text-muted);
+  --text-muted: var(--color-text-subtle);
+
+  --bg-gradient: var(--color-background);
+  --gradient-blue: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  --gradient-neon: var(--gradient-blue);
+  --gradient-glow: var(--gradient-blue);
+
+  --glow-blue: 0 8px 24px rgba(36, 59, 83, 0.10);
+  --glow-cyan: 0 8px 24px rgba(36, 59, 83, 0.10);
+  --glow-neon: 0 8px 24px rgba(36, 59, 83, 0.10);
+}
+
+/* ===== HTML ===== */
+
+html {
+  overflow-x: clip;
+}
+
+/* ===== BODY ===== */
+
+body {
+  background:
+    radial-gradient(ellipse at 82% 10%, rgba(91, 124, 153, 0.10), transparent 34rem),
+    radial-gradient(ellipse at 12% 58%, rgba(91, 124, 153, 0.055), transparent 32rem),
+    var(--color-background);
+  color: var(--text-color);
+  overflow-x: clip;
+  overflow-wrap: anywhere;
+}
+
+/* Fine grain adds depth without obscuring text or images. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.13;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: auto -12rem -24rem auto;
+  width: min(60vw, 55rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(91, 124, 153, 0.10), transparent 68%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===== KEYFRAMES ===== */
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ===== LINKS ===== */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ===== IMAGES ===== */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===== BUTTON RESET ===== */
+
+button {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+button:disabled,
+a[aria-disabled='true'] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ===== TEXT SELECTION ===== */
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-surface);
+}
+
+/* ===== SCROLLBAR ===== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+/* ===== RESPONSIVE BASE ===== */

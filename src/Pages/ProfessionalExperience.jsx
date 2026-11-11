@@ -1,4 +1,3 @@
-import "../css/ProfessionalExperience.css";
 
 const experiences = [
   {

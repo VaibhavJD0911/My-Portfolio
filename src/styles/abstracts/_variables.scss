@@ -1,0 +1,35 @@
+$palette: (
+  background: #f3ebdd,
+  primary: #243b53,
+  accent: #5b7c99,
+  text: #292d32,
+  surface: #faf8f3,
+  border: rgba(36, 59, 83, 0.14),
+  border-strong: rgba(36, 59, 83, 0.28),
+  beige-soft: #eee8dd,
+  beige-deep: #e8e1d5,
+  blue-soft: #e6edf2,
+  navy-deep: #1b2e42,
+  text-muted: #4f5962,
+  text-subtle: #5b6b79
+);
+
+$font-heading: 'Space Grotesk', 'Inter', sans-serif;
+$font-body: 'Inter', 'Segoe UI', sans-serif;
+$font-mono: 'IBM Plex Mono', monospace;
+
+$breakpoints: (
+  mobile: 600px,
+  tablet: 820px,
+  desktop: 1100px
+);
+
+$ease-fluid: cubic-bezier(0.22, 1, 0.36, 1);
+$motion-fast: 180ms;
+$motion-base: 280ms;
+$motion-slow: 500ms;
+
+$space: (
+  section: clamp(4rem, 8vw, 7.5rem),
+  gutter: clamp(1.25rem, 4vw, 3rem)
+);

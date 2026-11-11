@@ -1,4 +1,3 @@
-import "../css/Certifications.css";
 import cert1 from "../assets/Cert1.png";
 import cert2 from "../assets/Cert2.png";
 

@@ -1,0 +1,57 @@
+@use '../abstracts/variables' as tokens;
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: tokens.$font-body;
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: tokens.$font-heading;
+  font-weight: 700;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+code,
+pre,
+.home-overline,
+.home-scroll-label,
+.about-text .about-overline,
+.skills-label,
+.services-label,
+.cert-label,
+.experience-label,
+.projects-label,
+.project-client,
+.project-category,
+.project-index,
+.project-counter,
+.project-image-footer span,
+.experience-type,
+.tech-label,
+.technology-heading,
+.skill-percent {
+  font-family: tokens.$font-mono;
+}
+
+@media (max-width: 600px) {
+  html { font-size: 15px; }
+}

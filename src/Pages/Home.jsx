@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
-import "../css/Home.css";
-
 function Home() {
   const [text] = useTypewriter({
     words: [

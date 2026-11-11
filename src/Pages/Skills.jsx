@@ -1,4 +1,3 @@
-import "../css/Skills.css";
 
 import {
   FaJava,

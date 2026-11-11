@@ -1,6 +1,4 @@
 import { useState } from "react";
-import "../css/Showcase.css";
-
 import project1a from "../assets/LMS1.png";
 import project1b from "../assets/LMS2.png";
 import project1c from "../assets/LMS3.png";

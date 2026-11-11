@@ -1,0 +1,15 @@
+@use 'sass:color';
+@use 'sass:map';
+@use 'variables' as tokens;
+
+@function palette($name) {
+  @if not map.has-key(tokens.$palette, $name) {
+    @error 'Unknown palette token: #{$name}';
+  }
+
+  @return map.get(tokens.$palette, $name);
+}
+
+@function tint($name, $amount: 12%) {
+  @return color.mix(#fff, palette($name), $amount);
+}

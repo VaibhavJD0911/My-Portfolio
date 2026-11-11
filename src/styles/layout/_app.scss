@@ -1,5 +1,5 @@
 /* ============================================================
-   APP.CSS — Shared Layout & Component Tokens
+   APP SCSS — Shared Layout & Component Tokens
    ============================================================ */
 
 /* ===== APP SHELL ===== */
@@ -8,8 +8,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: var(--bg-gradient);
-  background-attachment: fixed;
+  background: transparent;
   position: relative;
   z-index: 1;
 }
@@ -19,7 +18,7 @@
 .page {
   flex: 1;
   min-width: 0;
-  padding-top: 72px;
+  padding-top: 76px;
   padding-left: 0;
   padding-right: 0;
   position: relative;
@@ -37,18 +36,15 @@
 /* ===== PAGE TITLE ===== */
 
 .page-title {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(2.4rem, 5vw, 3.8rem);
-  font-weight: 800;
-  letter-spacing: 3px;
-  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  text-transform: none;
   line-height: 1;
   margin-bottom: 16px;
 
-  background: linear-gradient(135deg, var(--text-main) 0%, var(--accent-cyan) 60%, var(--primary-blue) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-primary);
 
   position: relative;
   display: inline-block;
@@ -63,9 +59,8 @@
   transform: translateX(-50%);
   width: 60px;
   height: 2px;
-  background: var(--gradient-blue);
-  border-radius: 2px;
-  box-shadow: var(--glow-blue);
+  background: var(--color-accent);
+  border-radius: 1px;
 }
 
 .page-subtitle {
@@ -88,82 +83,54 @@
 
   padding: 13px 40px;
   min-height: 44px;
-  border-radius: 6px;
+  border-radius: 5px;
 
-  background: transparent;
-  color: var(--accent-cyan);
-  font-family: 'Barlow Condensed', sans-serif;
+  background: var(--color-primary);
+  color: var(--color-surface);
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 13px;
-  letter-spacing: 2.5px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 
-  border: 1px solid rgba(255, 0, 64, 0.45);
+  border: 1px solid var(--color-primary);
   cursor: pointer;
 
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   position: relative;
   overflow: hidden;
   z-index: 1;
 }
 
-.btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
-}
-
 .btn:hover {
-  color: #fff;
-  border-color: transparent;
-  box-shadow: 0 8px 30px rgba(255, 4, 0, 0.38), 0 0 0 1px rgba(255, 0, 64, 0.25);
-  transform: translateY(-2px);
-}
-
-.btn:hover::before {
-  opacity: 1;
+  color: var(--color-surface);
+  background: var(--primary-blue-dark);
+  border-color: var(--primary-blue-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(36, 59, 83, 0.14);
 }
 
 /* ===== GLASS CARD ===== */
 
 .card {
-  background: var(--bg-glass-heavy);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-
+  background: var(--color-surface);
   border: 1px solid var(--border-glass);
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 36px;
-
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
-
-  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 8px 24px rgba(36, 59, 83, 0.06);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
   position: relative;
   overflow: hidden;
 }
 
-/* Top highlight line */
 .card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 0, 54, 0.25), transparent);
+  content: none;
 }
 
 .card:hover {
-  border-color: rgba(255, 0, 54, 0.28);
-  box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(255, 0, 54, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  transform: translateY(-5px);
+  border-color: var(--border-glass-bright);
+  box-shadow: 0 12px 30px rgba(36, 59, 83, 0.10);
+  transform: translateY(-3px);
 }
 
 /* ===== CONTENT GRID ===== */
@@ -180,7 +147,7 @@
 
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 0, 24, 0.25), transparent);
+  background: var(--color-border);
   margin: 80px 0;
 }
 
@@ -204,7 +171,7 @@
 @media (max-width: 600px) {
   .page { padding-top: 64px; }
 
-  .page-title  { font-size: 2rem; letter-spacing: 2px; }
+  .page-title  { font-size: 2rem; letter-spacing: -0.035em; }
   .page-subtitle { font-size: 0.92rem; margin-bottom: 36px; }
 
   .btn { padding: 11px 26px; font-size: 11px; letter-spacing: 2px; }

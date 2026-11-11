@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "../css/Freelance.css";
 import Cattle1 from "../assets/CattleAI1.png";
 import Cattle2 from "../assets/CattleAI2.png";
 import Cattle3 from "../assets/CattleAI3.png";

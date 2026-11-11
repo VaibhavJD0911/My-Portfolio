@@ -1,0 +1,23 @@
+@use '../abstracts/mixins' as *;
+
+:is(
+  .about-hero,
+  .skills-container,
+  .services,
+  .cert-section,
+  .experience-section,
+  .projects-section,
+  .projects
+) {
+  scroll-margin-top: 5rem;
+}
+
+.section-divider {
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+}
+
+@include respond-below(mobile) {
+  .page-header {
+    margin-bottom: 3.5rem;
+  }
+}

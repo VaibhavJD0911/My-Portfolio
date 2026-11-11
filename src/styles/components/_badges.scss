@@ -1,0 +1,16 @@
+@use '../abstracts/mixins' as *;
+
+:is(.technology, .tech-item, .highlights li) {
+  @include transition((background-color, border-color, color, transform));
+
+  border-color: var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+}
+
+:is(.technology, .tech-item, .highlights li):hover {
+  border-color: var(--color-accent);
+  background-color: var(--color-blue-soft);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}

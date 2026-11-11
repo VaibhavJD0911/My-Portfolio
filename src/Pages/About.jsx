@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-import "../css/About.css";
 
 import {
   FaGithub,
